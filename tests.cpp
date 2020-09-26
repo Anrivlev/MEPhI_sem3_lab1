@@ -1,6 +1,8 @@
 
-#include "matrix.h"
+#include "sortFunctions.h"
+#include <iostream>
 
+using namespace std;
 
 void testDynamicArray(){
 	int initArr1[] = {1,2,3,4,5};
@@ -84,7 +86,6 @@ void testLinkedList(){
 	delete list7;
 }
 
-
 void testArraySequence(){
 	int initArr1[] = {1,2,3,5};
 	int initArr2[] = {-1,0,1,2,3,4,5,6,7};
@@ -138,7 +139,6 @@ void testArraySequence(){
 	delete seq6;
 	delete seq7;
 }
-
 
 void testListSequence(){
 	int initArr1[] = {1,2,3,5};
@@ -195,52 +195,103 @@ void testListSequence(){
 
 }
 
+void testSortFunctions()
+{
+    ArraySequence<int> *arr0 = new ArraySequence<int>(0);
 
-void testMatrix(){
-	Matrix<int> mat1(5, 3);
-	mat1.set(1, 0, 0);
-	mat1.set(2, 1, 0);
-	mat1.set(3, 2, 0);
-	mat1.set(4, 0, 1);
-	mat1.set(5, 1, 1);
-	mat1.set(6, 2, 1);
-	mat1.set(7, 3, 1);
-	mat1.set(8, 0, 2);
-	mat1.set(9, 1, 2);
-	mat1.set(10, 2, 2);
-	mat1.set(11, 3, 2);
-	mat1.set(12, 4, 2);
+    bubbleSort(arr0, desc);
+    assert(arr0->getSize() == 0);
+    mergeSort(arr0, desc);
+    assert(arr0->getSize() == 0);
+    quickSort(arr0, desc);
+    assert(arr0->getSize() == 0);
+    delete arr0;
 
-	Matrix<int> mat2(5, 3);
-	mat2.set(1, 0, 0);
-	mat2.set(2, 1, 1);
-	mat2.set(3, 2, 2);
 
-	Matrix<int> *mat3 = mat1 + mat2;
-	Matrix<int> *mat4 = mat3->scalarMult(2);
-	
-	assert(mat4->getRows() == 5);
-	assert(mat4->getColumns() == 3);
-	assert(mat4->get(0, 0) == 4);
-	assert(mat4->get(1, 2) == 18);
-	assert(mat4->get(0, 2) == 16);
-	assert(mat4->get(4, 0) == 0);
-	assert(mat4->get(2, 2) == 26);
+    ArraySequence<int> *arr1 = new ArraySequence<int>(1);
+    arr1->set(3, 0);
 
-	assert(std::abs(mat4->getNorm() - 54) < 0.7);
+    bubbleSort(arr0, desc);
+    assert(arr1->getSize() == 1);
+    assert(arr1->getFirst() == 3);
+    mergeSort(arr0, desc);
+    assert(arr1->getSize() == 1);
+    assert(arr1->getFirst() == 3);
+    quickSort(arr0, desc);
+    assert(arr1->getSize() == 1);
+    assert(arr1->getFirst() == 3);
+    delete arr1;
 
-	delete mat3;
-	delete mat4;
+
+    ArraySequence<int> *arr2 = new ArraySequence<int>(5);
+    arr2->set(6, 0);
+    arr2->set(3, 1);
+    arr2->set(5, 2);
+    arr2->set(7, 3);
+    arr2->set(4, 4);
+
+    bubbleSort(arr2, desc);
+    assert(arr2->getSize() == 5);
+    assert(arr2->get(0) == 7);
+    assert(arr2->get(1) == 6);
+    assert(arr2->get(2) == 5);
+    assert(arr2->get(3) == 4);
+    assert(arr2->get(4) == 3);
+
+    bubbleSort(arr2, asc);
+    assert(arr2->getSize() == 5);
+    assert(arr2->get(0) == 3);
+    assert(arr2->get(1) == 4);
+    assert(arr2->get(2) == 5);
+    assert(arr2->get(3) == 6);
+    assert(arr2->get(4) == 7);
+    delete arr2;
+
+
+    arr2 = new ArraySequence<int>(5);
+    arr2->set(6, 0);
+    arr2->set(3, 1);
+    arr2->set(5, 2);
+    arr2->set(7, 3);
+    arr2->set(4, 4);
+    mergeSort(arr2, asc);
+    assert(arr2->getSize() == 5);
+    assert(arr2->get(0) == 3);
+    assert(arr2->get(1) == 4);
+    assert(arr2->get(2) == 5);
+    assert(arr2->get(3) == 6);
+    assert(arr2->get(4) == 7);
+    delete arr2;
+
+    arr2 = new ArraySequence<int>(5);
+    arr2->set(6, 0);
+    arr2->set(3, 1);
+    arr2->set(5, 2);
+    arr2->set(7, 3);
+    arr2->set(4, 4);
+    quickSort(arr2, asc);
+    assert(arr2->getSize() == 5);
+    assert(arr2->get(0) == 3);
+    assert(arr2->get(1) == 4);
+    assert(arr2->get(2) == 5);
+    assert(arr2->get(3) == 6);
+    assert(arr2->get(4) == 7);
+    delete arr2;
 }
 
 
 
 int main(int argc, const char *argv[]){
 	testDynamicArray();
+	cout << "class DynamicArray is successfully tested" << endl;
 	testLinkedList();
+    cout << "class LinkedList is successfully tested" << endl;
 	testArraySequence();
+    cout << "class ArraySequence is successfully tested" << endl;
 	testListSequence();
-	testMatrix();
+    cout << "class ListSequence is successfully tested" << endl;
+	testSortFunctions();
+    cout << "Sort functions for class Sequence are successfully tested" << endl;
 	system("pause");
 	return 0;
 }

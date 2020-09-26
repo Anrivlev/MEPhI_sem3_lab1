@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    int size = 5;
+    int size = 0;
     int *A = new int[size];
     for(int i = 0; i < size; i++)
     {

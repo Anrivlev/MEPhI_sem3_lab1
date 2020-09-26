@@ -19,6 +19,7 @@ bool desc(T a, T b)
 template <class T>
 void bubbleSort(Sequence<T> *seq, bool (*compare)(T, T))
 {
+    if (seq->getSize() <= 1) return;
     int size = seq->getSize();
     for(int i = 0; i < size; i++)
     {
@@ -83,6 +84,7 @@ void _merge_(Sequence<T> *seq, int l, int r, bool (*compare)(T,T))
 template <class T>
 void mergeSort(Sequence<T> *seq, bool (*compare)(T, T))
 {
+    if (seq->getSize() <= 1) return;
     _mergeSort_(seq, 0, seq->getSize() - 1, compare);
 }
 
@@ -126,6 +128,7 @@ void _quickSort_(Sequence<T> *seq, int l, int r, bool (*compare)(T,T))
 template <class T>
 void quickSort(Sequence<T> *seq, bool (*compare)(T, T))
 {
+    if (seq->getSize() <= 1) return;
     _quickSort_(seq, 0, seq->getSize() - 1, compare);
 }
 
