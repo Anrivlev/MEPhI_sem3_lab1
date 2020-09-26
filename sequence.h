@@ -22,8 +22,6 @@ public:
 	virtual T getLast() const = 0;
 	virtual T get(int index) const = 0;
 	virtual int getSize() const { return this->size; }
-
-
 	virtual Sequence<T>* getSubsequence(int start, int end) const = 0; //end excluding
 
 	virtual void set(const T &item, int index) = 0;
@@ -39,10 +37,8 @@ public:
 		for(int i = 0; i < this->size; i++){
 			if(this->get(i) != seq.get(i)) return false;
 		}
-
 		return true;
 	}
-
 };
 
 

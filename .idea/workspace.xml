@@ -18,7 +18,11 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1i31C4fMHYKWAi9nzWZZ0fxwKak" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -27,6 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -38,7 +43,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601121330704</updated>
-      <workItem from="1601121340239" duration="563000" />
+      <workItem from="1601121340239" duration="1060000" />
     </task>
     <servers />
   </component>
@@ -50,5 +55,17 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="254" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1601121811654" />
+    <state x="534" y="191" key="EnvironmentVariablesDialog" timestamp="1601122527484">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="534" y="191" key="EnvironmentVariablesDialog/0.0.1600.860@0.0.1600.860" timestamp="1601122527484" />
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1601122442802">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1601122442802" />
+    <state x="301" y="72" key="SettingsEditor" timestamp="1601122531706">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1601122531706" />
   </component>
 </project>
