@@ -14,7 +14,7 @@ int main() {
     }
     ArraySequence<int> *arr;
     arr = new ArraySequence<int>(A, size);
-    mergeSort(arr, desc);
+    quickSort(arr, asc);
     for(int i = 0; i < size; i++) cout << arr->get(i) <<' ';
     system("pause");
     return 0;

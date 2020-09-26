@@ -2,6 +2,7 @@
 
 #include "sequence.h"
 
+using namespace std;
 
 template <class T>
 bool asc(T a, T b)
@@ -34,35 +35,97 @@ void bubbleSort(Sequence<T> *seq, bool (*compare)(T, T))
 }
 
 template <class T>
+void _mergeSort_(Sequence<T> *seq, int l, int r, bool (*compare)(T,T))
+{
+    if (l < r)
+    {
+        int mid = (r + l) / 2;
+        _mergeSort_(seq, l, mid, compare);
+        _mergeSort_(seq, mid + 1, r, compare);
+        _merge_(seq, l, r, compare);
+    }
+}
+
+template <class T>
+void _merge_(Sequence<T> *seq, int l, int r, bool (*compare)(T,T))
+{
+    int mid = (l + r) / 2;
+    ArraySequence<T> *temp = new ArraySequence<T>(r - l + 1);
+    int pos1 = l;
+    int pos2 = mid + 1;
+    int pos3 = 0;
+    while (pos1 <= mid && pos2 <= r)
+    {
+        if(compare(seq->get(pos1), seq->get(pos2)))
+        {
+            temp->set(seq->get(pos1++),pos3++);
+        }
+        else
+        {
+            temp->set(seq->get(pos2++),pos3++);
+        }
+    }
+    while (pos2 <= r)
+    {
+        temp->set(seq->get(pos2++), pos3++);
+    }
+    while (pos1 <= mid)
+    {
+        temp->set(seq->get(pos1++), pos3++);
+    }
+    for (pos3 = 0; pos3 < r - l + 1; pos3++)
+    {
+        seq->set(temp->get(pos3), l + pos3);
+    }
+    delete temp;
+}
+
+template <class T>
 void mergeSort(Sequence<T> *seq, bool (*compare)(T, T))
 {
     _mergeSort_(seq, 0, seq->getSize() - 1, compare);
 }
 
 template <class T>
-void _mergeSort_(Sequence<T> *seq, int l, int r, bool (*compare)(T,T))
+void _quickSort_(Sequence<T> *seq, int l, int r, bool (*compare)(T,T))
 {
-    if(l == r) return;
-    int mid = (r + 1) / 2;
-    _mergeSort_(seq, l, mid, compare);
-    _mergeSort_(seq, mid + 1, r, compare);
-    int i = l;
-    int j = mid + 1;
-    ArraySequence<T> *arr;
-    arr = new ArraySequence<T>(r);
-    for(int step = 0; step < r - l + 1; step++)
+    int pivot = seq->get(l);
+    int lb = l;
+    int rb = r;
+    while (l < r)
     {
-        if((j > r) || ((i <= mid) && (seq->get(i) < (seq->get(j)))))
+        while ((l < r) && (compare(pivot, seq->get(r))))
         {
-            arr->set(seq->get(i), step);
-            i++;
+            r--;
         }
-        else
+        if (l != r)
         {
-            arr->set(seq->get(j), step);
-            j++;
+            seq->set(seq->get(r), l);
+            l++;
+        }
+        while ((compare(seq->get(l), pivot)) && (l < r))
+        {
+            l++;
+        }
+        if (l != r)
+        {
+            seq->set(seq->get(l), r);
+            r--;
         }
     }
-    for(int step = 0; step < r - l + 1; step++)
-        seq->set(arr->get(step), l + step);
+    seq->set(pivot, l);
+    pivot = l;
+    l = lb;
+    r = rb;
+    if (l < pivot)
+        _quickSort_(seq, l, pivot - 1, compare);
+    if (r > pivot)
+        _quickSort_(seq, pivot + 1, r, compare);
 }
+
+template <class T>
+void quickSort(Sequence<T> *seq, bool (*compare)(T, T))
+{
+    _quickSort_(seq, 0, seq->getSize() - 1, compare);
+}
+
