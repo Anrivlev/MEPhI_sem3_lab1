@@ -23,12 +23,10 @@ public:
 	virtual T get(int index) const = 0;
 	virtual int getSize() const { return this->size; }
 	virtual Sequence<T>* getSubsequence(int start, int end) const = 0; //end excluding
-
 	virtual void set(const T &item, int index) = 0;
 	virtual void append(const T &item) = 0;
 	virtual void prepend(const T &item) = 0;
 	virtual void insertAt(const T &item, int index) = 0;
-
 	virtual Sequence<T>* concat(const Sequence<T>& seq) const = 0;
 
 	virtual bool operator==(const Sequence<T> &seq){
