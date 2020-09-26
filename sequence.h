@@ -28,7 +28,6 @@ public:
 	virtual void prepend(const T &item) = 0;
 	virtual void insertAt(const T &item, int index) = 0;
 	virtual Sequence<T>* concat(const Sequence<T>& seq) const = 0;
-
 	virtual bool operator==(const Sequence<T> &seq){
 		if(this->size != seq.size) return false;
 
