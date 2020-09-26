@@ -3,4 +3,4 @@ project(MEPhI_sem3_lab1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(MEPhI_sem3_lab1 main.cpp)
+add_executable(MEPhI_sem3_lab1 interface.cpp)

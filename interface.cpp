@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 void interface()
 {
 
@@ -67,28 +68,77 @@ void interface()
     cout << "Enter 1 to use bubble sort" << endl;
     cout << "Enter 2 to use merge sort" << endl;
     cout << "Enter 3 to use quick sort" << endl;
+    cout << "Enter 4 to run all of them and compare time spent" << endl;
     cin >> choose;
     cout << endl;
+    ArraySequence<int> *seq1;
+    clock_t start;
+    clock_t end;
+    double seconds = 0;
     switch (choose)
     {
         case 1:
+            start = clock();
             bubbleSort(seq, cmp);
+            end = clock();
+            seconds = (double)(end - start) / CLOCKS_PER_SEC;
+            cout << "Time spent on Bubble Sort: " << seconds << "seconds" << endl;
             break;
         case 2:
+            start = clock();
             mergeSort(seq, cmp);
+            end = clock();
+            seconds = (double)(end - start) / CLOCKS_PER_SEC;
+            cout << "Time spent on Merge Sort: " << seconds << "seconds" << endl;
             break;
         case 3:
+            start = clock();
             quickSort(seq, cmp);
+            end = clock();
+            seconds = (double)(end - start) / CLOCKS_PER_SEC;
+            cout << "Time spent on Quick Sort: " << seconds << "seconds" << endl;
             break;
+        case 4:
+            seq1 = new ArraySequence<int>(size);
+            for (int i = 0; i < size; i++)
+            {
+                seq1->set(seq->get(i), i);
+            }
+            start = clock();
+            bubbleSort(seq1, cmp);
+            end = clock();
+            seconds = (double)(end - start) / CLOCKS_PER_SEC;
+            cout << "Time spent on Bubble Sort: " << seconds << "seconds" << endl;
+            for (int i = 0; i < size; i++)
+            {
+                seq1->set(seq->get(i), i);
+            }
+            start = clock();
+            mergeSort(seq1, cmp);
+            end = clock();
+            seconds = (double)(end - start) / CLOCKS_PER_SEC;
+            cout << "Time spent on Merge Sort: " << seconds << "seconds" << endl;
+            for (int i = 0; i < size; i++)
+            {
+                seq1->set(seq->get(i), i);
+            }
+            start = clock();
+            quickSort(seq1, cmp);
+            end = clock();
+            seconds = (double)(end - start) / CLOCKS_PER_SEC;
+            cout << "Time spent on Quick Sort: " << seconds << "seconds" << endl;
         default:
             break;
     }
-    cout << "Sorted sequence:" << endl;
-    for (int i = 0; i < size; i++)
+    delete seq1;
+    if (choose != 4)
     {
-        cout << seq->get(i) << " ";
+        cout << "Sorted sequence:" << endl;
+        for (int i = 0; i < size; i++) {
+            cout << seq->get(i) << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
 }
 
 int main(int argc, const char *argv[])

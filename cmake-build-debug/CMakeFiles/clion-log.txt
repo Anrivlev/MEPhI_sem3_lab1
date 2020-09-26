@@ -14,18 +14,18 @@ CMake Error at D:/Tools/CLion 2019.3.4/bin/cmake/win/share/cmake-3.15/Modules/CM
 
     Change Dir: C:/Users/user/Desktop/РЈС‡РµР±Р° РёРЅ С„Р°РєС‚СѓРј/3 СЃРµРјРµСЃС‚СЂ/MEPhI_sem3_lab1/cmake-build-debug/CMakeFiles/CMakeTmp
     
-    Run Build Command(s):D:/Tools/MinGW/bin/mingw32-make.exe cmTC_0ebfd/fast && D:/Tools/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_0ebfd.dir\build.make CMakeFiles/cmTC_0ebfd.dir/build
+    Run Build Command(s):D:/Tools/MinGW/bin/mingw32-make.exe cmTC_d3cff/fast && D:/Tools/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_d3cff.dir\build.make CMakeFiles/cmTC_d3cff.dir/build
     mingw32-make.exe[1]: Entering directory 'C:/Users/user/Desktop/в•™СћС…СЃСЂ С€СЌ Р‡СЂСЉР„С”СЊ/3 С‘С…СЊС…С‘Р„РЃ/MEPhI_sem3_lab1/cmake-build-debug/CMakeFiles/CMakeTmp'
-    Building C object CMakeFiles/cmTC_0ebfd.dir/testCCompiler.c.obj
-    D:\Tools\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_0ebfd.dir\testCCompiler.c.obj   -c "C:\Users\user\Desktop\в•ЁРів•¤Р—в•Ёв•Ўв•Ёв–’в•Ёв–‘ в•Ёв••в•Ёв•њ в•¤Р”в•Ёв–‘в•Ёв•‘в•¤Р’в•¤Р“в•Ёв•ќ\3 в•¤Р‘в•Ёв•Ўв•Ёв•ќв•Ёв•Ўв•¤Р‘в•¤Р’в•¤Рђ\MEPhI_sem3_lab1\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c"
+    Building C object CMakeFiles/cmTC_d3cff.dir/testCCompiler.c.obj
+    D:\Tools\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_d3cff.dir\testCCompiler.c.obj   -c "C:\Users\user\Desktop\в•ЁРів•¤Р—в•Ёв•Ўв•Ёв–’в•Ёв–‘ в•Ёв••в•Ёв•њ в•¤Р”в•Ёв–‘в•Ёв•‘в•¤Р’в•¤Р“в•Ёв•ќ\3 в•¤Р‘в•Ёв•Ўв•Ёв•ќв•Ёв•Ўв•¤Р‘в•¤Р’в•¤Рђ\MEPhI_sem3_lab1\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c"
     gcc.exe: error: C:\Users\user\Desktop\Р¶СѓTв•џР¶Р¶Р¶-Р¶- Р¶РјР¶- Tв”ЂР¶-Р¶Р¶Tв”¬Tв”њР¶-\3 Tв”ґР¶Р¶Р¶-Р¶Р¶Tв”ґTв”¬Tв””\MEPhI_sem3_lab1\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c: No such file or directory
     gcc.exe: fatal error: no input files
     compilation terminated.
-    CMakeFiles\cmTC_0ebfd.dir\build.make:64: recipe for target 'CMakeFiles/cmTC_0ebfd.dir/testCCompiler.c.obj' failed
-    mingw32-make.exe[1]: *** [CMakeFiles/cmTC_0ebfd.dir/testCCompiler.c.obj] Error 1
+    CMakeFiles\cmTC_d3cff.dir\build.make:64: recipe for target 'CMakeFiles/cmTC_d3cff.dir/testCCompiler.c.obj' failed
+    mingw32-make.exe[1]: *** [CMakeFiles/cmTC_d3cff.dir/testCCompiler.c.obj] Error 1
     mingw32-make.exe[1]: Leaving directory 'C:/Users/user/Desktop/в•™СћС…СЃСЂ С€СЌ Р‡СЂСЉР„С”СЊ/3 С‘С…СЊС…С‘Р„РЃ/MEPhI_sem3_lab1/cmake-build-debug/CMakeFiles/CMakeTmp'
-    Makefile:120: recipe for target 'cmTC_0ebfd/fast' failed
-    mingw32-make.exe: *** [cmTC_0ebfd/fast] Error 2
+    Makefile:120: recipe for target 'cmTC_d3cff/fast' failed
+    mingw32-make.exe: *** [cmTC_d3cff/fast] Error 2
     
     
 
