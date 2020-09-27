@@ -6,6 +6,17 @@
 
 using namespace std;
 
+template <class T>
+bool isSorted(Sequence<T> *seq, bool (*compare)(T, T))
+{
+    int size = seq->getSize();
+    if (size == 0 || size == 1) return true;
+    for (int i = 0; i < size - 1; i++)
+    {
+        if (not compare(seq->get(i), seq->get(i + 1))) return false;
+    }
+    return true;
+}
 
 void interface()
 {
@@ -93,6 +104,7 @@ void interface()
         default:
             break;
     }
+    cout << endl;
     cout << "Enter 1 to use bubble sort" << endl;
     cout << "Enter 2 to use merge sort" << endl;
     cout << "Enter 3 to use quick sort" << endl;
@@ -160,6 +172,8 @@ void interface()
     }
     if (choose != 4)
     {
+        if (isSorted(seq, cmp)) cout << "The sequence is sorted successfully" << endl;
+        else cout << "The sequence is NOT sorted successfully" << endl;
         cout << "Sorted sequence, which is also saved in out.txt:" << endl;
         fout << "Sorted sequence:" << endl;
         for (int i = 0; i < size; i++)
@@ -172,6 +186,8 @@ void interface()
     }
     else if (choose == 4)
     {
+        if (isSorted(seq1, cmp)) cout << "The sequence is sorted successfully" << endl;
+        else cout << "The sequence is NOT sorted successfully" << endl;
         cout << "Sorted sequence is saved in out.txt" << endl;
         fout << "Sorted sequence:" << endl;
         for (int i = 0; i < size; i++)
