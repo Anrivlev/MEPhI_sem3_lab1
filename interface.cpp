@@ -69,14 +69,13 @@ void interface()
     }
     delete arr;
     ofstream fout("out.txt");
-    cout << "The sequence, which is also saved in out.txt:" << endl;
+    cout << "The sequence is saved in out.txt" << endl;
     fout << "The sequence:" << endl;
     for (int i = 0; i < size; i++)
     {
-        cout << seq->get(i) << " ";
         fout << seq->get(i) << " ";
     }
-    cout << endl << endl;
+    cout << endl;
     fout << endl << endl;
     cout << "Enter 1 to sort in descending order" << endl;
     cout << "Enter 2 to sort in ascending order" << endl;
@@ -128,22 +127,29 @@ void interface()
                 seq1->set(seq->get(i), i);
             }
             algSort = bubbleSort;
-            seconds = getTimeSort(seq, algSort, cmp);
+            seconds = getTimeSort(seq1, algSort, cmp);
             cout << "Time spent on Bubble Sort: " << seconds << "seconds" << endl;
+            if (isSorted(seq1, cmp)) cout << "The sequence is sorted successfully" << endl;
+            else cout << "The sequence is NOT sorted successfully" << endl;
             for (int i = 0; i < size; i++)
             {
                 seq1->set(seq->get(i), i);
             }
             algSort = mergeSort;
-            seconds = getTimeSort(seq, algSort, cmp);
+            seconds = getTimeSort(seq1, algSort, cmp);
             cout << "Time spent on Merge Sort: " << seconds << "seconds" << endl;
+            if (isSorted(seq1, cmp)) cout << "The sequence is sorted successfully" << endl;
+            else cout << "The sequence is NOT sorted successfully" << endl;
             for (int i = 0; i < size; i++)
             {
                 seq1->set(seq->get(i), i);
             }
             algSort = quickSort;
-            seconds = getTimeSort(seq, algSort, cmp);
+            seconds = getTimeSort(seq1, algSort, cmp);
             cout << "Time spent on Quick Sort: " << seconds << "seconds" << endl;
+            if (isSorted(seq1, cmp)) cout << "The sequence is sorted successfully" << endl;
+            else cout << "The sequence is NOT sorted successfully" << endl;
+            break;
         case 5:
             algSort = bogoSort;
             seconds = getTimeSort(seq, algSort, cmp);
@@ -152,15 +158,15 @@ void interface()
         default:
             break;
     }
+    cout << endl;
     if (choose != 4)
     {
         if (isSorted(seq, cmp)) cout << "The sequence is sorted successfully" << endl;
         else cout << "The sequence is NOT sorted successfully" << endl;
-        cout << "Sorted sequence, which is also saved in out.txt:" << endl;
+        cout << "Sorted sequence is saved in out.txt:" << endl;
         fout << "Sorted sequence:" << endl;
         for (int i = 0; i < size; i++)
         {
-            cout << seq->get(i) << " ";
             fout << seq->get(i) << " ";
         }
         cout << endl;
@@ -168,8 +174,6 @@ void interface()
     }
     else if (choose == 4)
     {
-        if (isSorted(seq1, cmp)) cout << "The sequence is sorted successfully" << endl;
-        else cout << "The sequence is NOT sorted successfully" << endl;
         cout << "Sorted sequence is saved in out.txt" << endl;
         fout << "Sorted sequence:" << endl;
         for (int i = 0; i < size; i++)
