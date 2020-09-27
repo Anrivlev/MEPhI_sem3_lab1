@@ -30,6 +30,15 @@ bool isSorted(Sequence<T> *seq, bool (*compare)(T, T))
 }
 
 template <class T>
+double getTimeSort(Sequence<T> *seq, void (*algSort)(Sequence<T>* seq, bool (*compare)(T, T)), bool (*compare)(T, T))
+{
+    clock_t start = clock();
+    algSort(seq, compare);
+    clock_t end = clock();
+    double seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    return seconds;
+}
+template <class T>
 void bubbleSort(Sequence<T> *seq, bool (*compare)(T, T))
 {
     if (seq->getSize() <= 1) return;
