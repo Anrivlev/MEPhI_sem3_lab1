@@ -1,6 +1,7 @@
 #pragma once
 
 #include "sequence.h"
+#include <ctime>
 
 using namespace std;
 
@@ -14,6 +15,18 @@ template <class T>
 bool desc(T a, T b)
 {
     return a >= b;
+}
+
+template <class T>
+bool isSorted(Sequence<T> *seq, bool (*compare)(T, T))
+{
+    int size = seq->getSize();
+    if (size == 0 || size == 1) return true;
+    for (int i = 0; i < size - 1; i++)
+    {
+        if (not compare(seq->get(i), seq->get(i + 1))) return false;
+    }
+    return true;
 }
 
 template <class T>
@@ -132,3 +145,25 @@ void quickSort(Sequence<T> *seq, bool (*compare)(T, T))
     _quickSort_(seq, 0, seq->getSize() - 1, compare);
 }
 
+template <class T>
+void _shuffle_(Sequence<T> *seq)
+{
+    int size = seq->getSize();
+    for (int i = 0; i < size; i++)
+    {
+        int index = rand() % size;
+        T swap = seq->get(index);
+        seq->set(seq->get(i), index);
+        seq->set(swap, i);
+    }
+}
+
+template <class T>
+void bogoSort(Sequence<T> *seq, bool (*compare)(T, T))
+{
+    srand(time(0));
+    while(not isSorted(seq, compare))
+    {
+        _shuffle_(seq);
+    }
+}

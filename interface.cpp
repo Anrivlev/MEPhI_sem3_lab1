@@ -6,17 +6,7 @@
 
 using namespace std;
 
-template <class T>
-bool isSorted(Sequence<T> *seq, bool (*compare)(T, T))
-{
-    int size = seq->getSize();
-    if (size == 0 || size == 1) return true;
-    for (int i = 0; i < size - 1; i++)
-    {
-        if (not compare(seq->get(i), seq->get(i + 1))) return false;
-    }
-    return true;
-}
+
 
 void interface()
 {
@@ -105,10 +95,11 @@ void interface()
             break;
     }
     cout << endl;
-    cout << "Enter 1 to use bubble sort" << endl;
-    cout << "Enter 2 to use merge sort" << endl;
-    cout << "Enter 3 to use quick sort" << endl;
+    cout << "Enter 1 to use Bubble sort" << endl;
+    cout << "Enter 2 to use Merge sort" << endl;
+    cout << "Enter 3 to use Quick sort" << endl;
     cout << "Enter 4 to run all of them and compare time spent" << endl;
+    cout << "Enter 5 to use Bogosort. DO NOT USE on sequences with size >10)" << endl;
     cin >> choose;
     cout << endl;
     ArraySequence<int> *seq1;
@@ -167,6 +158,13 @@ void interface()
             end = clock();
             seconds = (double)(end - start) / CLOCKS_PER_SEC;
             cout << "Time spent on Quick Sort: " << seconds << "seconds" << endl;
+        case 5:
+            start = clock();
+            bogoSort(seq, cmp);
+            end = clock();
+            seconds = (double)(end - start) / CLOCKS_PER_SEC;
+            cout << "Time spent on BogoSort: " << seconds << "seconds" << endl;
+            break;
         default:
             break;
     }
