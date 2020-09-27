@@ -247,6 +247,21 @@ void testSortFunctions()
     assert(arr2->get(4) == 7);
     delete arr2;
 
+    arr2 = new ArraySequence<int>(5);
+    arr2->set(1, 0);
+    arr2->set(1, 1);
+    arr2->set(1, 2);
+    arr2->set(1, 3);
+    arr2->set(1, 4);
+    bubbleSort(arr2, asc);
+    assert(arr2->getSize() == 5);
+    assert(arr2->get(0) == 1);
+    assert(arr2->get(1) == 1);
+    assert(arr2->get(2) == 1);
+    assert(arr2->get(3) == 1);
+    assert(arr2->get(4) == 1);
+    delete arr2;
+
 
     arr2 = new ArraySequence<int>(5);
     arr2->set(6, 0);
@@ -264,6 +279,21 @@ void testSortFunctions()
     delete arr2;
 
     arr2 = new ArraySequence<int>(5);
+    arr2->set(1, 0);
+    arr2->set(1, 1);
+    arr2->set(1, 2);
+    arr2->set(1, 3);
+    arr2->set(1, 4);
+    mergeSort(arr2, asc);
+    assert(arr2->getSize() == 5);
+    assert(arr2->get(0) == 1);
+    assert(arr2->get(1) == 1);
+    assert(arr2->get(2) == 1);
+    assert(arr2->get(3) == 1);
+    assert(arr2->get(4) == 1);
+    delete arr2;
+
+    arr2 = new ArraySequence<int>(5);
     arr2->set(6, 0);
     arr2->set(3, 1);
     arr2->set(5, 2);
@@ -276,6 +306,21 @@ void testSortFunctions()
     assert(arr2->get(2) == 5);
     assert(arr2->get(3) == 6);
     assert(arr2->get(4) == 7);
+    delete arr2;
+
+    arr2 = new ArraySequence<int>(5);
+    arr2->set(1, 0);
+    arr2->set(1, 1);
+    arr2->set(1, 2);
+    arr2->set(1, 3);
+    arr2->set(1, 4);
+    quickSort(arr2, asc);
+    assert(arr2->getSize() == 5);
+    assert(arr2->get(0) == 1);
+    assert(arr2->get(1) == 1);
+    assert(arr2->get(2) == 1);
+    assert(arr2->get(3) == 1);
+    assert(arr2->get(4) == 1);
     delete arr2;
 }
 
