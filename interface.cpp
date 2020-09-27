@@ -2,6 +2,7 @@
 #include "sortFunctions.h"
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ void interface()
     ArraySequence<int> *seq;
     cout << "Enter 1 to fill in the sequence with random numbers" << endl;
     cout << "Enter 2 to fill in the sequence manually" << endl;
+    cout << "Enter 3 to generate a sorted sequence" << endl;
     cin >> choose;
     cout << endl;
     int arr[size];
@@ -42,14 +44,40 @@ void interface()
             cout << endl;
             seq = new ArraySequence<int>(arr, size);
             break;
+        case 3:
+            cout << "Enter 1 to generate a sequence sorted in descending order" << endl;
+            cout << "Enter 2 to generate a sequence sorted in ascending order" << endl;
+            cin >> choose;
+            cout << endl;
+            seq = new ArraySequence<int>(size);
+            if (choose == 1)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    seq->set(size - i - 1, i);
+                }
+            } else if (choose == 2)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    seq->set(i, i);
+                }
+            }
+            break;
         default:
             break;
     }
     delete arr;
-    cout << "The sequence:";
+    ofstream fout("out.txt");
+    cout << "The sequence, which is also saved in out.txt:" << endl;
+    fout << "The sequence:" << endl;
     for (int i = 0; i < size; i++)
+    {
         cout << seq->get(i) << " ";
-    cout << endl;
+        fout << seq->get(i) << " ";
+    }
+    cout << endl << endl;
+    fout << endl << endl;
     cout << "Enter 1 to sort in descending order" << endl;
     cout << "Enter 2 to sort in ascending order" << endl;
     cin >> choose;
@@ -130,15 +158,31 @@ void interface()
         default:
             break;
     }
-    delete seq1;
     if (choose != 4)
     {
-        cout << "Sorted sequence:" << endl;
-        for (int i = 0; i < size; i++) {
+        cout << "Sorted sequence, which is also saved in out.txt:" << endl;
+        fout << "Sorted sequence:" << endl;
+        for (int i = 0; i < size; i++)
+        {
             cout << seq->get(i) << " ";
+            fout << seq->get(i) << " ";
         }
         cout << endl;
+        fout << endl;
     }
+    else if (choose == 4)
+    {
+        cout << "Sorted sequence is saved in out.txt" << endl;
+        fout << "Sorted sequence:" << endl;
+        for (int i = 0; i < size; i++)
+        {
+            fout << seq1->get(i) << " ";
+        }
+        cout << endl;
+        fout << endl;
+        delete seq1;
+    }
+    fout.close();
 }
 
 int main(int argc, const char *argv[])
